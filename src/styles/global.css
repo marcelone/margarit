@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&display=swap');
+
+/* variables de disseny */
+:root {
+  --color-bg: #F4EEE3;
+  --color-accent: #A33C32;
+  --color-text: #2B2522;
+  --color-lines: #DCCDBE;
+
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+
+  --transition-smooth: all 200ms ease;
+  --max-width: 1200px;
+}
+
+/* Reset bàsic */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+}
+
+/* Capa de textura de paper físic real */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/paper-texture.webp');
+  background-repeat: repeat;
+  opacity: 0.05; /* Molt subtil, 5% d'opacitat */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Tipografia i jerarquia editorial */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  transition: var(--transition-smooth);
+}
+
+/* Contenidor universal per a mantenir marges de l'editorial */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Classes utilitàries globals */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-lines);
+  margin: 4rem 0;
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+/* Botó general (RESERVA TAULA) */
+.btn-outline {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: 0.8rem 2.5rem;
+  background: transparent;
+  transition: var(--transition-smooth);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.btn-filled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: 1rem 3rem;
+  transition: var(--transition-smooth);
+}
+
+.btn-filled:hover {
+  background-color: transparent;
+  color: var(--color-accent);
+}
+
+.btn-filled svg {
+  fill: currentColor;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Mobile responsive globals */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+  
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .divider {
+    margin: 2.5rem 0;
+  }
+}

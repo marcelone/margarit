@@ -1,0 +1,76 @@
+---
+import menuData from '../data/menu.json';
+
+interface MenuItem {
+  nom: string;
+  preu: string;
+}
+
+const menu: MenuItem[] = menuData;
+---
+
+<div class="carta-container" id="menu">
+  <h2 class="section-title">Menú</h2>
+  
+  <div class="menu-list">
+    {menu.map((item) => (
+      <div class="menu-item">
+        <span class="item-name">{item.nom}</span>
+      </div>
+    ))}
+  </div>
+  
+  <div class="menu-footer">
+    <a href="#menu" class="menu-more">VEURE MENÚ COMPLET &rarr;</a>
+  </div>
+</div>
+
+<style>
+  .carta-container {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .menu-item {
+    width: 100%;
+  }
+
+  .item-name {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .menu-footer {
+    margin-top: 1rem;
+  }
+
+  .menu-more {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 0.2rem;
+  }
+
+  .menu-more:hover {
+    border-color: var(--color-accent);
+  }
+</style>

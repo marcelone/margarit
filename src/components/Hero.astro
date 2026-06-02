@@ -1,0 +1,446 @@
+---
+import { Image } from 'astro:assets';
+import facadeImage from '../assets/facade.webp';
+---
+
+<section class="hero-section">
+  <div class="container">
+    <h1 class="hero-brand" id="hero-brand">MARGARIT</h1>
+
+    <div class="hero-content">
+      <div class="hero-text-col">
+        <h2 class="hero-subtitle">
+          UNA MANERA MOLT PERSONAL D'ENTENDRE EL MEDITERRANI
+        </h2>
+
+        <div class="hero-description">
+          <p>La nostra base és grega, però la nostra cuina viatja molt més enllà: per les illes, la muntanya, els barris i les cuines populars que encara conserven memòria, veritat i hospitalitat. Ens inspiren les receptes de família, el foc, el pa, el vi i aquesta manera tan mediterrània de compartir la taula.</p>
+          <p>Som un restaurant petit, amb cuina oberta i una manera de cuinar propera, sensible i viva. Ens agrada treballar des de la intuïció, la cura i el respecte per cada detall, construint plats frescos, honestos i pensats per compartir al voltant de la taula.</p>
+          <p>No busquem seguir tendències ni reinterpretar per moda. Cuinem des de l'emoció, des de l'estima per l'ofici i des del desig que cada persona que entra a Margarit se senti benvinguda, còmoda i cuidada.</p>
+          <p class="description-bold">Més que una idea de restaurant, Margarit és una manera de rebre.</p>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn-outline" id="reserva-btn">RESERVA TAULA &rarr;</button>
+          <button class="btn-outline" id="regala-btn">REGALA L'EXPERIÈNCIA &rarr;</button>
+        </div>
+      </div>
+
+      <div class="hero-image-col">
+        <div class="image-wrapper">
+          <Image
+            src={facadeImage}
+            alt="Façana del restaurant Margarit"
+            class="facade-img"
+            widths={[360, 540, 720, 1024]}
+            sizes="(max-width: 768px) 100vw, 55vw"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Popup -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Tancar">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal-disclaimer">
+        <p class="disclaimer-title">Informació important per a les reserves</p>
+        <div class="collapsable open">
+          <button class="collapsable-header" aria-expanded="true">
+            <span>Experiència i tipus d'espai</span>
+            <svg class="chevron" viewBox="0 0 24 24" width="20" height="20"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </button>
+          <div class="collapsable-content">
+            <p>La nostra proposta està pensada per gaudir d'una experiència gastronòmica tranquil·la, íntima i molt vinculada al ritme de la cuina vista.</p>
+            <p>Per la naturalesa de l'espai, la distribució de la sala i el funcionament del servei, no és l'entorn més adequat per a nens petits, carrets infantils o grups nombrosos.</p>
+          </div>
+        </div>
+        <div class="collapsable">
+          <button class="collapsable-header" aria-expanded="false">
+            <span>Reserves especials o grups nombrosos</span>
+            <svg class="chevron" viewBox="0 0 24 24" width="20" height="20"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </button>
+          <div class="collapsable-content">
+            <p>En el cas de reserves que no s'ajustin a aquestes recomanacions, us convidem a contactar-nos directament per poder valorar la millor opció i gestionar personalment una ubicació adequada, de manera que puguem atendre-us amb la comoditat que mereixeu.</p>
+          </div>
+        </div>
+        <div class="collapsable">
+          <button class="collapsable-header" aria-expanded="false">
+            <span>Puntualitat</span>
+            <svg class="chevron" viewBox="0 0 24 24" width="20" height="20"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </button>
+          <div class="collapsable-content">
+            <p>Us agraïm aussi que respecteu l'horari compromès en el moment de la reserva. La puntualitat és important per poder oferir un bon servei a tots els clients i evitar desajustos en l'organització de la sala i la cuina.</p>
+          </div>
+        </div>
+      </div>
+      <iframe
+        src="https://widget.thefork.com/a6a35ded-695a-412c-9dc3-ceb69f04795c"
+        allow="payment *"
+        style="width: 100%; min-height: 800px; border: none; overflow: scroll;"
+        title="Reserves TheFork">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    padding: 0;
+    width: 100%;
+    margin-top: -12px;
+  }
+
+  .hero-brand {
+    font-size: clamp(4rem, 8vw, 6.2rem);
+    line-height: 0.9;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    transition: all 0.4s ease;
+    margin-top: -32px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-brand.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .hero-text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    line-height: 1.25;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+  }
+
+  .hero-description p {
+    margin-bottom: 0.3rem;
+  }
+
+.description-bold {
+    font-weight: 600;
+    margin-top: 0.8rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    margin-bottom: 0;
+    margin-top: 0.75rem;
+  }
+
+  .hero-actions .btn-outline {
+    white-space: nowrap;
+    font-size: 1rem;
+    padding: 0.8rem 1.6rem;
+  }
+
+  .hero-actions .btn-outline:first-child {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .hero-actions .btn-outline:first-child:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+  }
+
+  .hero-actions .btn-outline {
+    white-space: nowrap;
+    font-size: 1rem;
+    padding: 0.8rem 1.6rem;
+  }
+
+  .hero-actions .btn-outline:first-child {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .hero-actions .btn-outline:first-child:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+  }
+
+  .hero-image-col {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .image-wrapper {
+    width: 100%;
+    max-width: 540px;
+    aspect-ratio: 45 / 55;
+    overflow: hidden;
+    border: 1px solid var(--color-lines);
+  }
+
+  .facade-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition-smooth);
+  }
+
+  .facade-img:hover {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 1024px) {
+    .hero-content {
+      gap: 2.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 1.5rem 0;
+    }
+
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-text-col {
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-brand {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+      margin-bottom: 2rem;
+    }
+
+    .hero-description {
+      margin-bottom: 2rem;
+    }
+
+    .hero-image-col {
+      justify-content: center;
+    }
+
+    .image-wrapper {
+      max-width: 100%;
+      aspect-ratio: 4 / 5;
+    }
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal-content {
+    background: var(--color-bg);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 2.5rem;
+    border: 1px solid var(--color-lines);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+    opacity: 0.6;
+    transition: opacity 0.3s;
+  }
+
+  .modal-close:hover {
+    opacity: 1;
+  }
+
+  .modal-disclaimer {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-lines);
+  }
+
+  .modal-disclaimer p {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+
+  .disclaimer-title {
+    font-family: var(--font-display) !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 0.1em;
+    color: var(--color-accent) !important;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem !important;
+  }
+
+  .collapsable {
+    border-bottom: 1px solid var(--color-lines);
+  }
+
+  .collapsable:first-child {
+    border-top: 1px solid var(--color-lines);
+  }
+
+  .collapsable-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    text-align: left;
+  }
+
+  .collapsable-header .chevron {
+    transition: transform 0.3s ease;
+  }
+
+  .collapsable.open .collapsable-header .chevron {
+    transform: rotate(180deg);
+  }
+
+  .collapsable-content {
+    display: none;
+    padding-bottom: 1rem;
+  }
+
+  .collapsable.open .collapsable-content {
+    display: block;
+  }
+
+  .collapsable-content p {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+
+  .collapsable-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .modal-content {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  function initCollapsables() {
+    document.querySelectorAll('.collapsable-header').forEach(header => {
+      header.onclick = () => {
+        const collapsable = header.closest('.collapsable');
+        const isOpen = collapsable.classList.contains('open');
+        document.querySelectorAll('.collapsable').forEach(c => c.classList.remove('open'));
+        document.querySelectorAll('.collapsable-header').forEach(h => h.setAttribute('aria-expanded', 'false'));
+        if (!isOpen) {
+          collapsable.classList.add('open');
+          header.setAttribute('aria-expanded', 'true');
+        }
+      };
+    });
+  }
+
+  function initScrollLogo() {
+    const heroBrand = document.getElementById('hero-brand');
+    if (!heroBrand) return;
+
+    const checkScroll = () => {
+      if (window.scrollY > 100) {
+        heroBrand.classList.add('hidden');
+      } else {
+        heroBrand.classList.remove('hidden');
+      }
+    };
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const reservaBtn = document.getElementById('reserva-btn');
+    const regalaBtn = document.getElementById('regala-btn');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalClose = document.getElementById('modal-close');
+
+    function openModal() {
+      modalOverlay?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      initCollapsables();
+    }
+
+    function closeModal() {
+      modalOverlay?.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    reservaBtn?.addEventListener('click', openModal);
+    regalaBtn?.addEventListener('click', openModal);
+    modalClose?.addEventListener('click', closeModal);
+    modalOverlay?.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+
+    initCollapsables();
+    initScrollLogo();
+  });
+</script>

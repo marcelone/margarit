@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Carta from '../components/Carta.astro';
+import Galeria from '../components/Galeria.astro';
+import Reserva from '../components/Reserva.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Margarit — Cuina de mercat i vins naturals">
+  <Header />
+  
+  <main>
+    <!-- Secció Hero -->
+    <Hero />
+    
+    <!-- Línia horitzontal divisòria superior -->
+    <div class="divider-container container">
+      <hr class="divider" />
+    </div>
+
+    <!-- Secció combinada de Menú i Galeria en una sola fila a Desktop -->
+    <section class="menu-gallery-section container">
+      <div class="menu-gallery-row">
+        <!-- Carrusel d'imatges a l'esquerra -->
+        <Galeria />
+        <!-- Menú a la dreta -->
+        <Carta />
+      </div>
+    </section>
+
+    <!-- Línia horitzontal divisòria inferior -->
+    <div class="divider-container container">
+      <hr class="divider" />
+    </div>
+
+    <!-- Secció de Reserva -->
+    <Reserva />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .divider-container {
+    width: 100%;
+  }
+
+  .divider-container hr {
+    margin: 2rem 0 3rem 0;
+    border-top: 1px solid var(--color-lines);
+  }
+
+  .menu-gallery-section {
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .menu-gallery-row {
+    display: grid;
+    grid-template-columns: 48fr 52fr;
+    gap: 4.5rem;
+    align-items: start;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .menu-gallery-row {
+      gap: 2.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .menu-gallery-row {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+    
+    .divider-container hr {
+      margin: 1.5rem 0 2.5rem 0;
+    }
+  }
+</style>

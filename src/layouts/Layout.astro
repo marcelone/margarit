@@ -1,0 +1,107 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Margarit — Cuina de mercat i vins naturals", 
+  description = "Restaurant artesanal a Poble Sec, Barcelona. Cuina de mercat, vins naturals i foc lent. Producte de proximitat honest en una atmosfera editorial acollidora." 
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://margaritrestaurant.com");
+const ogImage = new URL("/og-image.jpg", Astro.site || "https://margaritrestaurant.com");
+---
+
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Primari -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Schema.org JSON-LD de Restaurant per a SEO Local -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Margarit",
+        "image": "https://margaritrestaurant.com/assets/facade.jpg",
+        "priceRange": "$$",
+        "servesCuisine": "Cuina de mercat",
+        "telephone": "+34933104598",
+        "email": "hola@margaritrestaurant.com",
+        "url": "https://margaritrestaurant.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Carrer Margarit, 15",
+          "addressLocality": "Barcelona",
+          "postalCode": "08004",
+          "addressRegion": "Catalunya",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "41.374828",
+          "longitude": "2.162791"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "13:30",
+            "closes": "16:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "20:30",
+            "closes": "23:30"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/margarit.restaurant",
+          "https://www.facebook.com/margarit.restaurant"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

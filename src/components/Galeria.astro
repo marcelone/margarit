@@ -1,0 +1,144 @@
+---
+const images = [
+  { src: "/menjar.webp", alt: "Menjar de Margarit" },
+  { src: "/vins.webp", alt: "Vins naturals de Margarit" },
+  { src: "/Margarit-sala.webp", alt: "Sala del restaurant Margarit" }
+];
+---
+
+<div class="carousel-container">
+  <div class="carousel-viewport">
+    {images.map((image, index) => (
+      <div class="carousel-slide" data-active={index === 0 ? "true" : "false"}>
+        <img 
+          src={image.src} 
+          alt={image.alt} 
+          class="carousel-img"
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+  
+  <div class="carousel-nav">
+    <button class="carousel-btn prev" aria-label="Imatge anterior">
+      <svg viewBox="0 0 24 24" width="20" height="20">
+        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    
+    <button class="carousel-btn next" aria-label="Següent imatge">
+      <svg viewBox="0 0 24 24" width="20" height="20">
+        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  .carousel-container {
+    width: 100%;
+    position: relative;
+  }
+
+  .carousel-viewport {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 1px solid var(--color-lines);
+    background-color: var(--color-lines);
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .carousel-slide[data-active="true"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .carousel-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .carousel-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0;
+    opacity: 0.6;
+  }
+
+  .carousel-btn:hover {
+    opacity: 1;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .carousel-viewport {
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>
+
+<script>
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.setAttribute('data-active', i === index ? 'true' : 'false');
+    });
+    currentIndex = index;
+  }
+
+  function autoAdvance() {
+    const newIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+    showSlide(newIndex);
+  }
+
+  let intervalId = setInterval(autoAdvance, 3000);
+
+  prevBtn?.addEventListener('click', () => {
+    clearInterval(intervalId);
+    const newIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+    showSlide(newIndex);
+    intervalId = setInterval(autoAdvance, 3000);
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    clearInterval(intervalId);
+    const newIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+    showSlide(newIndex);
+    intervalId = setInterval(autoAdvance, 3000);
+  });
+</script>
