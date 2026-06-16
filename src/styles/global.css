@@ -79,6 +79,8 @@ button {
   margin-right: auto;
   padding-left: 3rem;
   padding-right: 3rem;
+  padding-left: max(3rem, env(safe-area-inset-left));
+  padding-right: max(3rem, env(safe-area-inset-right));
 }
 
 /* Classes utils globals */
@@ -148,8 +150,10 @@ button {
   }
 
   .container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-left: max(2rem, env(safe-area-inset-left));
+    padding-right: max(2rem, env(safe-area-inset-right));
   }
 
   .divider {
@@ -157,9 +161,16 @@ button {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .container {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
