@@ -2,51 +2,116 @@
 ---
 
 <footer class="footer" id="contacte">
-  <div class="container footer-container">
-    <div class="footer-col col-napm">
-      <p class="napm-name">MARGARIT</p>
-      <p class="napm-address">Carrer Margarit, 15<br/>08004 Barcelona</p>
-      <a href="tel:+34933104598" class="napm-phone">+34 933 10 45 98</a>
-      <br/>
-      <a href="mailto:reservas@margarit.info" class="napm-email">reservas@margarit.info</a>
+  <div class="container">
+    <div class="footer-container">
+      <div class="footer-col col-napm">
+        <img src="/margarit-logo.webp" alt="Margarit" class="footer-wordmark" />
+        <p class="napm-address">Carrer Margarit, 15<br/>08004 Barcelona</p>
+        <div class="napm-contact">
+          <a href="tel:+34933104598" class="napm-link">+34 933 10 45 98</a>
+          <a href="mailto:reservas@margarit.info" class="napm-link">reservas@margarit.info</a>
+        </div>
+      </div>
+      
+      <div class="footer-col col-map">
+        <div class="map-wrapper">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d369.4851294657961!2d2.161187379339507!3d41.37261693859655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a302460c7da1%3A0x3a3a7cc8582ac2e1!2sMargarit%20restaurant!5e0!3m2!1ses!2ses!4v1779705336935!5m2!1ses!2ses"
+            class="map-iframe"
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicació de Margarit">
+          </iframe>
+        </div>
+      </div>
     </div>
     
-    <div class="footer-col col-map">
-<div class="map-wrapper">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d369.4851294657961!2d2.161187379339507!3d41.37261693859655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a302460c7da1%3A0x3a3a7cc8582ac2e1!2sMargarit%20restaurant!5e0!3m2!1ses!2ses!4v1779705336935!5m2!1ses!2ses"
-          class="map-iframe"
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Ubicació de Margarit">
-        </iframe>
-      </div>
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} Margarit Restaurant.</p>
     </div>
   </div>
 </footer>
 
 <style>
-  .footer { border-top: 1px solid var(--color-lines); padding: 4rem 0 2rem 0; margin-top: 2rem; width: 100%; background-color: transparent; }
-  .footer-container { display: grid; grid-template-columns: auto 1fr; gap: 3rem; width: 100%; align-items: start; }
-  .col-napm { align-items: flex-start; }
-  .napm-name { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.15em; color: var(--color-accent); margin-bottom: 0.8rem; }
-  .napm-address { font-family: var(--font-serif); font-size: 0.95rem; color: var(--color-text); line-height: 1.5; margin-bottom: 1.2rem; }
-  .napm-phone { font-family: var(--font-serif); font-size: 0.95rem; color: var(--color-text); line-height: 1.5; margin-bottom: 0.4rem; }
-  .napm-email { font-family: var(--font-serif); font-size: 0.95rem; color: var(--color-text); line-height: 1.5; }
-  .napm-email { border-bottom: 1px solid transparent; }
-  .napm-email:hover { border-color: var(--color-text); }
-.col-map { width: 100%; pointer-events: auto; position: relative; z-index: 1; }
+  .footer { 
+    border-top: 1px solid var(--color-lines); 
+    padding: 6rem 0 3rem 0; 
+    margin-top: 2rem; 
+    width: 100%; 
+    background-color: transparent; 
+  }
+
+  .footer-container { 
+    display: grid; 
+    grid-template-columns: 1fr 3fr; 
+    gap: 4rem; 
+    width: 100%; 
+    align-items: start; 
+    margin-bottom: 4rem;
+  }
+
+  .col-napm { 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .footer-wordmark {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+  }
+
+  .napm-address { 
+    font-family: var(--font-serif); 
+    font-size: 1.1rem; 
+    color: var(--color-text); 
+    line-height: 1.6; 
+  }
+
+  .napm-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .napm-link { 
+    font-family: var(--font-display); 
+    font-size: 1.05rem; 
+    letter-spacing: 0.1em;
+    color: var(--color-text); 
+    border-bottom: 1px solid transparent;
+    width: fit-content;
+  }
+
+  .napm-link:hover { 
+    color: var(--color-accent);
+    border-color: var(--color-accent); 
+  }
+
+  .col-map { 
+    width: 100%; 
+    pointer-events: auto; 
+    position: relative; 
+    z-index: 1; 
+  }
+
   .map-wrapper {
     width: 100%;
-    height: 200px;
+    height: 280px;
     overflow: hidden;
     border: 1px solid var(--color-lines);
     pointer-events: auto;
     position: relative;
     z-index: 1;
+    margin-top: 0;
   }
+
   .map-iframe {
     width: 100%;
     height: 100%;
@@ -56,9 +121,48 @@
     position: relative;
     z-index: 1;
   }
+
   .map-iframe:hover {
     filter: grayscale(60%) sepia(15%) brightness(1.05) contrast(0.95);
   }
-  @media (max-width: 900px) { .footer-container { flex-direction: column; gap: 2rem; } .col-map { justify-content: center; } .map-wrapper { max-width: 100%; height: 200px; } }
-  @media (max-width: 600px) { .footer { padding: 3rem 0 2rem 0; } .footer-container { justify-content: center; align-items: center; } .col-napm { align-items: center; } }
+
+  .footer-bottom {
+    border-top: 1px solid var(--color-lines);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    opacity: 0.6;
+  }
+
+  .footer-bottom p {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 900px) { 
+    .footer-container { 
+      grid-template-columns: 1fr; 
+      gap: 3rem; 
+      text-align: center;
+    } 
+    .col-napm { 
+      align-items: center; 
+    } 
+    .napm-link {
+      margin: 0 auto;
+    }
+    .map-wrapper { 
+      max-width: 100%; 
+    } 
+  }
+
+  @media (max-width: 600px) { 
+    .footer { 
+      padding: 4rem 0 2rem 0; 
+    } 
+    .footer-wordmark {
+      height: 18px;
+    }
+  }
 </style>

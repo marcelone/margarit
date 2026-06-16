@@ -1,0 +1,124 @@
+---
+---
+
+<section class="sobre-section">
+  <div class="container">
+    <div class="sobre-intro">
+      <h2 class="sobre-subtitle">
+        UNA MANERA MOLT PERSONAL D'ENTENDRE EL MEDITERRANI
+      </h2>
+    </div>
+
+    <div class="sobre-content">
+      <div class="sobre-text">
+        <p>La nostra base és grega, però la nostra cuina viatja molt més enllà: per les illes, la muntanya, els barris i les cuines populars que encara conserven memòria, veritat i hospitalitat. Ens inspiren les receptes de família, el foc, el pa, el vi i aquesta manera tan mediterrània de compartir la taula.</p>
+        <p>Som un restaurant petit, amb cuina oberta i una manera de cuinar propera, sensible i viva. Ens agrada treballar des de la intuïció, la cura i el respecte per cada detall, construint plats frescos, honestos i pensats per compartir al voltant de la taula.</p>
+        <p>No busquem seguir tendències ni reinterpretar per moda. Cuinem des de l'emoció, des de l'estima per l'ofici i des del desig que cada persona que entra a Margarit se senti benvinguda, còmoda i cuidada.</p>
+        <p class="sobre-bold">Més que una idea de restaurant, Margarit és una manera de rebre.</p>
+      </div>
+
+      <div class="sobre-actions">
+        <button class="sobre-btn" id="sobre-reserva-btn">RESERVA TAULA</button>
+        <button class="sobre-btn sobre-btn-outline" id="sobre-regala-btn">REGALA L'EXPERIÈNCIA</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sobre-section {
+    padding: 3rem 0 6rem 0;
+    width: 100%;
+  }
+
+  .sobre-intro {
+    max-width: 800px;
+    margin-bottom: 3rem;
+  }
+
+  .sobre-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    color: var(--color-text);
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .sobre-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .sobre-text {
+    font-size: 1.05rem;
+    color: var(--color-text);
+    max-width: 900px;
+  }
+
+  .sobre-text p {
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .sobre-bold {
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 2rem;
+    color: var(--color-accent);
+  }
+
+  .sobre-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: stretch;
+    padding-top: 0.5rem;
+  }
+
+  .sobre-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-bg);
+    background-color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    padding: 0.7rem 1.5rem;
+    transition: var(--transition-smooth);
+    flex: 1;
+    white-space: nowrap;
+  }
+
+  .sobre-btn:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+  }
+
+  .sobre-btn-outline {
+    background-color: transparent;
+    color: var(--color-accent);
+  }
+
+  .sobre-btn-outline:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  @media (max-width: 768px) {
+    .sobre-content {
+      gap: 2.5rem;
+    }
+
+    .sobre-actions {
+      flex-direction: column;
+    }
+  }
+</style>

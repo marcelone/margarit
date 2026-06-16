@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Sobre from '../components/Sobre.astro';
 import Carta from '../components/Carta.astro';
 import Galeria from '../components/Galeria.astro';
 import Reserva from '../components/Reserva.astro';
@@ -12,9 +13,12 @@ import Footer from '../components/Footer.astro';
   <Header />
   
   <main>
-    <!-- Secció Hero -->
+    <!-- Secció Hero (visual: carrusel fotogràfic) -->
     <Hero />
     
+    <!-- Secció conceptual sota el carrusel -->
+    <Sobre />
+
     <!-- Línia horitzontal divisòria superior -->
     <div class="divider-container container">
       <hr class="divider" />

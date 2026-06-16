@@ -2,19 +2,19 @@
 
 /* variables de disseny */
 :root {
-  --color-bg: #F4EEE3;
-  --color-accent: #A33C32;
+  --color-bg: #FAF5E9;
+  --color-accent: #6D0D16;
   --color-text: #2B2522;
   --color-lines: #DCCDBE;
 
   --font-display: 'Bebas Neue', sans-serif;
   --font-serif: 'Cormorant Garamond', serif;
 
-  --transition-smooth: all 200ms ease;
-  --max-width: 1200px;
+  --transition-smooth: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --max-width: 1100px;
 }
 
-/* Reset bàsic */
+/* Reset basic */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -25,14 +25,14 @@ html, body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-serif);
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 19px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
 }
 
-/* Capa de textura de paper físic real */
+/* Capa de textura de paper */
 body::before {
   content: "";
   position: fixed;
@@ -42,7 +42,7 @@ body::before {
   height: 100%;
   background-image: url('../assets/paper-texture.webp');
   background-repeat: repeat;
-  opacity: 0.05; /* Molt subtil, 5% d'opacitat */
+  opacity: 0.04;
   mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 9999;
@@ -51,8 +51,8 @@ body::before {
 /* Tipografia i jerarquia editorial */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-accent);
 }
@@ -77,32 +77,33 @@ button {
   max-width: var(--max-width);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
-/* Classes utilitàries globals */
+/* Classes utils globals */
 .divider {
   border: none;
   border-top: 1px solid var(--color-lines);
-  margin: 4rem 0;
+  margin: 5rem 0;
+  opacity: 0.7;
 }
 
 .text-accent {
   color: var(--color-accent);
 }
 
-/* Botó general (RESERVA TAULA) */
+/* Boto general (RESERVA TAULA) */
 .btn-outline {
   display: inline-block;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: 0.15em;
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-accent);
   border: 1px solid var(--color-accent);
-  padding: 0.8rem 2.5rem;
+  padding: 0.9rem 2.8rem;
   background: transparent;
   transition: var(--transition-smooth);
 }
@@ -118,14 +119,14 @@ button {
   justify-content: center;
   gap: 0.8rem;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.2rem;
-  letter-spacing: 0.15em;
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-bg);
   background-color: var(--color-accent);
   border: 1px solid var(--color-accent);
-  padding: 1rem 3rem;
+  padding: 1.1rem 3.2rem;
   transition: var(--transition-smooth);
 }
 
@@ -143,7 +144,7 @@ button {
 /* Mobile responsive globals */
 @media (max-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 17px;
   }
   
   .container {
@@ -152,6 +153,6 @@ button {
   }
   
   .divider {
-    margin: 2.5rem 0;
+    margin: 3.5rem 0;
   }
 }
