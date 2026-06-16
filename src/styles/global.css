@@ -141,18 +141,25 @@ button {
   height: 1.2rem;
 }
 
-/* Mobile responsive globals */
-@media (max-width: 768px) {
+/* Responsive globals (cobreix mòbils i tablets) */
+@media (max-width: 1024px) {
   html {
     font-size: 17px;
   }
-  
+
   .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
-  
+
   .divider {
     margin: 3.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
